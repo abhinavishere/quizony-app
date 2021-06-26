@@ -1,6 +1,6 @@
 ## Quizony.com
 
-- Created By [@AbhinavSawarkar](linkedin.com/in/abhinav-sawarkar-890a15144/)
+- Created By [@AbhinavSawarkar](https://linkedin.com/in/abhinav-sawarkar-890a15144/)
 
 # Using
 
