@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/jpg" href="./quizony-icon.ico" />
+    <title>Quizony.com | Quizzes</title>
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Font Awesome Script -->
+    <script
+      src="https://kit.fontawesome.com/b6c975b9d9.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Main Script -->
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <!-- NavBar -->
+      <nav class="nav">
+        <!-- NavBar Container -->
+        <ul class="nav__bar">
+          <!-- Logo -->
+          <li class="logo">
+            <a href="./index.html" class="logo--link"
+              ><img src="./quizony_logo_black.png" alt="Quizony"
+            /></a>
+          </li>
+          <!-- Nav Items -->
+          <li class="nav__item has-sub-menu">
+            <a tabindex="0" class="nav__item--link"
+              >Categories <i class="fas fa-chevron-down"></i
+            ></a>
+            <ul class="sub__menu">
+              <li class="sub__item">
+                <a href="#" class="sub__item--link">Quizzes</a>
+              </li>
+              <li class="sub__item">
+                <a href="#" class="sub__item--link">Stories</a>
+              </li>
+              <li class="sub__item">
+                <a href="#" class="sub__item--link">Popular Tags</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Create</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Wait Room</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Our Story</a>
+          </li>
+          <li class="nav__item button button-signup">
+            <a href="#" class="nav__item--link button__link">Sign Up</a>
+          </li>
+          <li class="nav__item button button-login">
+            <a href="#" class="nav__item--link button__link">Login</a>
+          </li>
+          <!-- Menu Toggle -->
+          <li class="toggle">
+            <a href="#" class="toggle--link">
+              <i class="fas fa-bars"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main section -->
+    <main class="main">
+      <!-- categories -->
+      <section class="categories mobile">
+        <!-- <a href="#" class="categories__item">All</a> -->
+      </section>
+
+      <!-- Quiz Tiles Section -->
+      <section class="quiz-grid">
+        <h1 class="quiz-title">Quizzes</h1>
+        <!-- Quiz Tile -->
+        <!-- <article class="quiz-tile">
+          <div class="quiz-tile__wrapper">
+            <img src="./images/food/food-1.jpg" class="quiz__img" />
+            <div class="quiz__body">
+              <span class="quiz__body--time">1 month ago</span>
+              <p class="quiz__body--topic">What should you eat tonight?</p>
+            </div>
+          </div>
+          <div class="quiz-tile__footer">
+            <div class="stats">
+              <span class="stats__icon"><i class="fas fa-list"></i></span>
+              <span class="stats__label">29</span>
+            </div>
+            <div class="stats">
+              <span class="stats__icon"><i class="far fa-eye"></i></span>
+              <span class="stats__label">654321</span>
+            </div>
+            <div class="stats">
+              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
+              <span class="stats__label">8663 </span>
+            </div>
+            <div class="stats">
+              <span class="stats__icon"><i class="fas fa-user"></i></span>
+              <span class="stats__label">Gatby</span>
+            </div>
+          </div>
+        </article> -->
+      </section>
+      <section class="field center">
+        <a href="#" class="field__item">All</a>
+        <a href="#" class="field__item">Quizzes</a>
+        <a href="#" class="field__item">Stories</a>
+        <a href="#" class="field__item">Top Quizzes</a>
+        <a href="#" class="field__item">Waiting Room</a>
+      </section>
+      <section class="quiz-categories center">
+        <h1 class="quiz-categories__title">Quiz Categories</h1>
+        <!-- <a href="#" class="quiz-categories__item"></a> -->
+      </section>
+      <!-- top quizzes -->
+      <section class="top-quizzes center">
+        <h1 class="quiz-categories__title">Top Quizzes</h1>
+        <div class="top-quizzes__wrapper">
+          <article class="top-tile">
+            <img class="top-tile__img" src="./images/top-quizzes/top-1.jpg" />
+            <div class="top-tile__body">
+              <p>Which word should you live by this year?</p>
+            </div>
+          </article>
+          <article class="top-tile">
+            <img class="top-tile__img" src="./images/top-quizzes/top-2.jpg" />
+            <div class="top-tile__body">
+              <p>Which girl should i date?</p>
+            </div>
+          </article>
+          <article class="top-tile">
+            <img class="top-tile__img" src="./images/top-quizzes/top-3.jpg" />
+            <div class="top-tile__body">
+              <p>Am I A Top or A bottom?</p>
+            </div>
+          </article>
+          <article class="top-tile">
+            <img class="top-tile__img" src="./images/top-quizzes/top-1.jpg" />
+            <div class="top-tile__body">
+              <p>Do I Love Him?</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Stort Categories -->
+      <section class="quiz-categories center story">
+        <h1 class="quiz-categories__title">Story Categories</h1>
+      </section>
+      <!-- Create BTN -->
+      <div class="create center">
+        <a href="#" class="create__btn">Create Quiz</a>
+      </div>
+      <!-- popular Tags -->
+      <section class="quiz-categories center popular">
+        <h1 class="quiz-categories__title">Popular Tags</h1>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__links center">
+        <a href="#" class="footer__link">Home</a
+        ><a href="#" class="footer__link">Adverise</a
+        ><a href="#" class="footer__link">Contact</a
+        ><a href="#" class="footer__link">About</a
+        ><a href="#" class="footer__link">Privacy Policy</a
+        ><a href="#" class="footer__link">Coolie Policy</a>
+      </div>
+      <div class="footer__attribution center">
+        <a href="./index.html" class="footer__attribution--link"
+          >quizony.com
+        </a>
+        <span>&copy; 2021. All Rights Reserved.</span>
+      </div>
+    </footer>
+  </body>
+</html>
