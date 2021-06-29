@@ -26,10 +26,10 @@ const categories = [
     "All" ,"Women", 'Men', 'Couples', "Adult", 'Kids', 'Living', 'Personality', 'Hobby' ,'Relationship', 'Animals' ,'Travel', 'Film', 'Politics', 'History', 'Story', 'Girls', 'Trivia', 'Health', 'Teans', 'Food', 'Music', 'Technology', 'Education', 'Career', 'Entertainment' ,'Other'
 ];
 
-categories.forEach((item) => {
-  const itemHTML = `<a href="#" class="categories__item">${item}</a>`;
-  categoriesContainer.insertAdjacentHTML("beforeend", itemHTML);
-});
+// categories.forEach((item) => {
+//   const itemHTML = `<a href="#" class="categories__item">${item}</a>`;
+//   categoriesContainer.insertAdjacentHTML("beforeend", itemHTML);
+// });
 
 categoriesContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("categories__item")) {
@@ -72,16 +72,16 @@ const createQuizTile = function (n) {
   }
 };
 
-createQuizTile(30);
+// createQuizTile(30);
 
-const quizCategories = categories.slice(1);
-console.log(quizCategories);
+// const quizCategories = categories.slice(1);
+// console.log(quizCategories);
 
-quizCategories.forEach((cat) => {
-  const quizHTML = `<a href="#" class="quiz-categories__item">${cat}</a>`;
+// quizCategories.forEach((cat) => {
+//   const quizHTML = `<a href="#" class="quiz-categories__item">${cat}</a>`;
 
-  quizCategoriesContainer.insertAdjacentHTML("beforeend", quizHTML);
-});
+//   quizCategoriesContainer.insertAdjacentHTML("beforeend", quizHTML);
+// });
 
 //prettier-ignore
 const storyCategories = [
@@ -104,21 +104,21 @@ const storyCategories = [
   "Short Stories",
 ];
 
-storyCategories.forEach((story) => {
-  const storyHTML = `<a href="#" class="quiz-categories__item story__item">${story}</a>`;
+// storyCategories.forEach((story) => {
+//   const storyHTML = `<a href="#" class="quiz-categories__item story__item">${story}</a>`;
 
-  storyContainer.insertAdjacentHTML("beforeend", storyHTML);
-});
+//   storyContainer.insertAdjacentHTML("beforeend", storyHTML);
+// });
 
 // Popular tags
 // prettier-ignore
 const popularTags = ['Girls', 'Friends', 'Fun', 'Teens', 'Love', 'Personality', 'Food', 'History', 'Name', 'Generator', 'Character', 'Lifestyle', 'Religion', 'Music', 'Style', 'Animals']
 
-popularTags.forEach((tag) => {
-  const tagHTML = `<a href="#" class="quiz-categories__item popular__item">${tag}</a>`;
+// popularTags.forEach((tag) => {
+//   const tagHTML = `<a href="#" class="quiz-categories__item popular__item">${tag}</a>`;
 
-  tagsContainer.insertAdjacentHTML("beforeend", tagHTML);
-});
+//   tagsContainer.insertAdjacentHTML("beforeend", tagHTML);
+// });
 
 const hasSubMenu = document.querySelector(".has-sub-menu");
 
