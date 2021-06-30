@@ -100,7 +100,7 @@ body {
 
 .sidebar {
   width: 100vw;
-  padding: 4rem 0;
+  padding: 2rem 0;
   background-color: rgb(240, 235, 235);
 
   &__items {
@@ -157,6 +157,7 @@ body {
   }
   &__item {
     display: block;
+    padding-block: 0.75rem;
     padding-left: 1.5rem;
     a {
       display: block;
@@ -219,11 +220,6 @@ body {
     }
   }
 
-  .has-sub-menu {
-    position: relative;
-    z-index: 100;
-  }
-
   .sub {
     &__menu {
       position: absolute;
@@ -244,7 +240,6 @@ body {
 
 // Categories Section
 .categories {
-  // margin-top: 1rem;
   width: 100%;
   background: rgb(240, 235, 235);
   padding: 1rem 1.5rem;
@@ -282,7 +277,6 @@ body {
   }
   &-tile {
     cursor: pointer;
-    // padding-inline: 1rem;
     transition: transform 250ms ease-in;
     overflow: hidden;
     // Animation

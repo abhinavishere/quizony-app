@@ -119,7 +119,7 @@ body a {
 
 .sidebar {
   width: 100vw;
-  padding: 4rem 0;
+  padding: 2rem 0;
   background-color: #f0ebeb;
 }
 
@@ -188,6 +188,7 @@ body a {
 
 .submenu__item {
   display: block;
+  padding-block: 0.75rem;
   padding-left: 1.5rem;
 }
 
@@ -253,10 +254,6 @@ body a {
   }
   .nav .toggle {
     display: none;
-  }
-  .has-sub-menu {
-    position: relative;
-    z-index: 100;
   }
   .sub__menu {
     position: absolute;
