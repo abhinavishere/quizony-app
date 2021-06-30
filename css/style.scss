@@ -78,17 +78,6 @@ body {
       }
     }
   }
-  .toggle {
-    order: 1;
-    &--link {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 1rem 1.5rem;
-      font-size: 2rem;
-      font-weight: 300;
-      color: #000;
-      border: 1px solid #ccc;
-    }
-  }
 
   .button {
     order: 2;
@@ -97,31 +86,83 @@ body {
     }
   }
 }
-
-.sub {
-  &__menu {
-    display: none;
-    list-style: none;
-    font-size: 1.5rem;
-    font-weight: 400;
-    // border: 1px solid red;
-    padding-block: 1.3rem;
-  }
-  &__item {
-    &--link {
-      padding: 0.5rem 1rem;
-      display: block;
-      color: #000;
-      &:hover,
-      &:focus {
-        background: rgba(0, 0, 0, 0.2);
-      }
-    }
+.toggle {
+  order: 1;
+  &--link {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #000;
+    border: 1px solid #ccc;
   }
 }
 
-.sub__menu--active {
-  display: block;
+.sidebar {
+  width: 100vw;
+  padding: 4rem 0;
+  background-color: rgb(240, 235, 235);
+
+  &__items {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &__item {
+    display: block;
+    width: 100%;
+    padding-inline: 4rem;
+    padding-block: 1rem;
+    a {
+      display: block;
+      font-size: 1.8rem;
+      color: #000;
+    }
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+.close-sidebar {
+  padding-inline: 4rem;
+  text-align: right;
+  font-size: 2rem;
+
+  i {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 1rem 1.5rem;
+  }
+}
+
+.submenu {
+  section {
+    header {
+      border: none;
+      background-color: transparent;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.8rem;
+      i {
+        margin-left: 1rem;
+      }
+    }
+  }
+  &__items {
+    list-style: none;
+  }
+  &__item {
+    display: block;
+    padding-left: 1.5rem;
+    a {
+      display: block;
+      font-size: 1.6rem;
+    }
+  }
 }
 
 @media all and (min-width: 700px) {
@@ -142,6 +183,18 @@ body {
       display: block;
       width: auto;
       padding-inline: 1rem;
+    }
+  }
+
+  .sidebar {
+    width: max-content;
+    &__items {
+      .button {
+        &-signup,
+        &-login {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -184,7 +237,7 @@ body {
 // Main Section
 .main {
   background: rgb(240, 235, 235);
-  margin-block: 6rem;
+  margin-block: 5.4rem;
   max-width: 120rem;
   margin-inline: auto;
 }
@@ -344,11 +397,12 @@ body {
     }
     &__body {
       padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
       p {
         font-size: 1.4rem;
         font-weight: 500;
         line-height: 1.2;
-        margin-top: 2rem;
       }
     }
   }

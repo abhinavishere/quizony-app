@@ -1,20 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html amp lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/jpg" href="./quizony-icon.ico" />
-    <title>Quizony.com | Quizzes</title>
-    <!-- Main StyleSheet -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <!-- Font Awesome Script -->
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Quizony</title>
+    <link
+      rel="canonical"
+      href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1"
+    />
+
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style>
+    </noscript>
+    <style amp-custom>
+      @import "css/style.css";
+    </style>
+    <!-- Font awesome stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      type="text/css"
+    />
+    <!-- Accordion -->
     <script
-      src="https://kit.fontawesome.com/b6c975b9d9.js"
-      crossorigin="anonymous"
+      async
+      custom-element="amp-accordion"
+      src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"
     ></script>
-    <!-- Main Script -->
-    <script defer src="./app.js"></script>
+    <!-- Sidebar -->
+    <script
+      async
+      custom-element="amp-sidebar"
+      src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+    ></script>
   </head>
   <body>
     <header class="header">
@@ -24,26 +101,19 @@
         <ul class="nav__bar">
           <!-- Logo -->
           <li class="logo">
-            <a href="./index.html" class="logo--link"
-              ><img src="./quizony_logo_black.png" alt="Quizony"
-            /></a>
+            <a href="./index.html" class="logo--link">
+              <amp-img
+                width="125"
+                height="25"
+                layout="fixed"
+                src="./quizony_logo_black.png"
+                alt="Quizony"
+              ></amp-img>
+            </a>
           </li>
           <!-- Nav Items -->
-          <li class="nav__item has-sub-menu">
-            <a tabindex="0" class="nav__item--link"
-              >Categories <i class="fas fa-chevron-down"></i
-            ></a>
-            <ul class="sub__menu">
-              <li class="sub__item">
-                <a href="#" class="sub__item--link">Quizzes</a>
-              </li>
-              <li class="sub__item">
-                <a href="#" class="sub__item--link">Stories</a>
-              </li>
-              <li class="sub__item">
-                <a href="#" class="sub__item--link">Popular Tags</a>
-              </li>
-            </ul>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Categories</a>
           </li>
           <li class="nav__item">
             <a href="#" class="nav__item--link">Create</a>
@@ -62,13 +132,60 @@
           </li>
           <!-- Menu Toggle -->
           <li class="toggle">
-            <a href="#" class="toggle--link">
+            <a
+              on="tap:sidebar.toggle"
+              role="button"
+              tabindex="0"
+              class="toggle--link"
+            >
               <i class="fas fa-bars"></i>
             </a>
           </li>
         </ul>
       </nav>
     </header>
+    <!-- Sidebar -->
+
+    <amp-sidebar
+      id="sidebar"
+      class="sidebar"
+      layout="nodisplay"
+      side="right"
+      width="100vw"
+    >
+      <div
+        class="close-sidebar"
+        role="button"
+        tabindex="0"
+        on="tap:sidebar.close"
+      >
+        <i class="fas fa-times"></i>
+      </div>
+      <ul class="sidebar__items">
+        <li class="sidebar__item button-signup"><a>Signup</a></li>
+        <li class="sidebar__item button-login"><a>Login</a></li>
+        <li class="sidebar__item">
+          <amp-accordion
+            class="submenu"
+            layout="container"
+            animate
+            expand-single-section
+          >
+            <section>
+              <header>Categories <i class="fas fa-chevron-down"></i></header>
+              <ul class="submenu__items">
+                <li class="submenu__item"><a>Quizzes</a></li>
+                <li class="submenu__item"><a>Stories</a></li>
+                <li class="submenu__item"><a>Popular Tags</a></li>
+              </ul>
+            </section>
+          </amp-accordion>
+        </li>
+        <li class="sidebar__item"><a>Create</a></li>
+        <li class="sidebar__item"><a>Wait Room</a></li>
+        <li class="sidebar__item"><a>Our Story</a></li>
+      </ul>
+    </amp-sidebar>
 
     <!-- main section -->
     <main class="main">
@@ -104,13 +221,19 @@
         <a href="#" class="categories__item">Other</a>
       </section>
 
-      <!-- Quiz Tiles Section -->
+      <!-- Quiz Tiles  -->
       <section class="quiz-grid">
         <h1 class="quiz-title">Quizzes</h1>
         <!-- Quiz Tile -->
         <article class="quiz-tile">
           <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
+            <amp-img
+              src="./images/food/food-1.jpg"
+              class="quiz__img"
+              layout="responsive"
+              width="640"
+              height="457"
+            ></amp-img>
             <div class="quiz__body">
               <span class="quiz__body--time">1 month ago</span>
               <p class="quiz__body--topic">What should you eat tonight?</p>
@@ -138,1071 +261,13 @@
 
         <article class="quiz-tile">
           <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
-            <div class="quiz__body">
-              <span class="quiz__body--time">1 month ago</span>
-              <p class="quiz__body--topic">What should you eat tonight?</p>
-            </div>
-          </div>
-          <div class="quiz-tile__footer">
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-list"></i></span>
-              <span class="stats__label">29</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-eye"></i></span>
-              <span class="stats__label">654321</span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="far fa-thumbs-up"></i></span>
-              <span class="stats__label">8663 </span>
-            </div>
-            <div class="stats">
-              <span class="stats__icon"><i class="fas fa-user"></i></span>
-              <span class="stats__label">Gatby</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="quiz-tile">
-          <div class="quiz-tile__wrapper">
-            <img src="./images/food/food-1.jpg" class="quiz__img" />
+            <amp-img
+              src="./images/food/food-1.jpg"
+              class="quiz__img"
+              layout="responsive"
+              width="640"
+              height="457"
+            ></amp-img>
             <div class="quiz__body">
               <span class="quiz__body--time">1 month ago</span>
               <p class="quiz__body--topic">What should you eat tonight?</p>
@@ -1235,6 +300,7 @@
         <a href="#" class="field__item">Top Quizzes</a>
         <a href="#" class="field__item">Waiting Room</a>
       </section>
+      <!-- Quiz Categories -->
       <section class="quiz-categories center">
         <h1 class="quiz-categories__title">Quiz Categories</h1>
         <!-- <a href="#" class="quiz-categories__item"></a> -->
@@ -1248,8 +314,8 @@
         <a href="#" class="quiz-categories__item">Hobby</a>
         <a href="#" class="quiz-categories__item">Relationship</a>
         <a href="#" class="quiz-categories__item">Animals</a>
-        <a href="#" class="quiz-categories__item">Travel</a
-        ><a href="#" class="quiz-categories__item">Film</a>
+        <a href="#" class="quiz-categories__item">Travel</a>
+        <a href="#" class="quiz-categories__item">Film</a>
         <a href="#" class="quiz-categories__item">Politics</a>
         <a href="#" class="quiz-categories__item">History</a>
         <a href="#" class="quiz-categories__item">Story</a>
@@ -1270,25 +336,49 @@
         <h1 class="quiz-categories__title">Top Quizzes</h1>
         <div class="top-quizzes__wrapper">
           <article class="top-tile">
-            <img class="top-tile__img" src="./images/top-quizzes/top-1.jpg" />
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top-1.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
             <div class="top-tile__body">
               <p>Which word should you live by this year?</p>
             </div>
           </article>
           <article class="top-tile">
-            <img class="top-tile__img" src="./images/top-quizzes/top-2.jpg" />
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top-2.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
             <div class="top-tile__body">
               <p>Which girl should i date?</p>
             </div>
           </article>
           <article class="top-tile">
-            <img class="top-tile__img" src="./images/top-quizzes/top-3.jpg" />
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top-3.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
             <div class="top-tile__body">
               <p>Am I A Top or A bottom?</p>
             </div>
           </article>
           <article class="top-tile">
-            <img class="top-tile__img" src="./images/top-quizzes/top-1.jpg" />
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top4.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
             <div class="top-tile__body">
               <p>Do I Love Him?</p>
             </div>
