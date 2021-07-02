@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Predict my future! - Quiz</title>
+    <link
+      rel="canonical"
+      href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1"
+    />
+    <!-- Font stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      type="text/css"
+    />
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript>
+      <style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style>
+    </noscript>
+
+    <style amp-custom>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 10px;
+      }
+
+      :root {
+        --color-accent: #30c553;
+        --color-accent-dark: #0a8f29;
+        --color-text: #000;
+        --color-text-btn: #fff;
+        --body-bg-color: #f0ebeb;
+        --color-footer-link: #428bca;
+      }
+
+      body {
+        background: var(--body-bg-color);
+        font-family: "Poppins", sans-serif;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        min-height: 100vh;
+      }
+
+      body img {
+        max-width: 100%;
+      }
+
+      body a {
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.288);
+        z-index: 10000;
+      }
+
+      .nav {
+        background: var(--body-bg-color);
+      }
+
+      .nav__bar {
+        padding-inline: 1.2rem;
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .nav__item {
+        display: none;
+        cursor: pointer;
+        text-align: center;
+        padding-inline: 3rem;
+        -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+        order: 3;
+        width: 100%;
+      }
+
+      .nav__item--link {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #000;
+        padding: 1rem;
+        position: relative;
+        display: block;
+      }
+
+      .nav__item--link:hover,
+      .nav__item--link:focus {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .nav .logo {
+        padding: 1rem;
+        font-size: 1.6rem;
+      }
+
+      .nav .logo--link .logo__img {
+        position: relative;
+        width: 100%;
+        max-width: 13rem;
+        z-index: 10000;
+      }
+
+      .nav .button {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2;
+      }
+
+      .nav .button__link {
+        font-weight: 700;
+      }
+
+      .toggle {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+      }
+
+      .toggle--link {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1rem 1.5rem;
+        font-size: 2rem;
+        font-weight: 300;
+        color: #000;
+        border: 1px solid #ccc;
+      }
+
+      .sidebar {
+        width: 100vw;
+        padding: 2rem 0;
+        background-color: var(--body-bg-color);
+      }
+
+      .sidebar__items {
+        height: 100%;
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+      }
+
+      .sidebar__item {
+        display: block;
+        width: 100%;
+        padding-inline: 4rem 2rem;
+        padding-block: 1rem;
+      }
+
+      .sidebar__item a {
+        display: block;
+        font-size: 1.8rem;
+        color: #000;
+      }
+
+      .sidebar__item:hover,
+      .sidebar__item:focus {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .close-sidebar {
+        padding-inline: 4rem;
+        text-align: right;
+        font-size: 2rem;
+      }
+
+      .close-sidebar i {
+        background: rgba(0, 0, 0, 0.2);
+        color: #000;
+        border: 1px solid #ccc;
+        padding: 1rem 1.5rem;
+      }
+
+      .submenu section header {
+        border: none;
+        background-color: transparent;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.8rem;
+      }
+
+      .submenu section header i {
+        margin-left: 1rem;
+      }
+
+      .submenu__items {
+        list-style: none;
+      }
+
+      .submenu__item {
+        display: block;
+        padding-block: 0.75rem;
+        padding-left: 1.5rem;
+      }
+
+      .submenu__item a {
+        display: block;
+        font-size: 1.6rem;
+      }
+
+      @media all and (min-width: 700px) {
+        .nav__bar {
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+        }
+        .nav .logo {
+          -webkit-box-flex: 1;
+          -ms-flex: 1;
+          flex: 1;
+        }
+        .nav .toggle {
+          -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+          order: 2;
+          -webkit-box-flex: 1;
+          -ms-flex: 1;
+          flex: 1;
+          text-align: right;
+        }
+        .nav .button {
+          -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+          order: 1;
+          display: block;
+          width: auto;
+          padding-inline: 1rem;
+        }
+        .sidebar {
+          width: 50vw;
+        }
+        .sidebar__items .button-signup,
+        .sidebar__items .button-login {
+          display: none;
+        }
+      }
+
+      @media all and (min-width: 960px) {
+        .nav {
+          padding-inline: 4rem;
+        }
+        .nav__item {
+          -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+          order: 1;
+          display: block;
+          width: auto;
+          padding-inline: 1rem;
+        }
+        .nav .button {
+          -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+          order: 1;
+          display: block;
+          width: auto;
+          padding-inline: 1rem;
+        }
+        .nav .toggle {
+          display: none;
+        }
+      }
+      /* Container */
+      .container {
+        padding-inline: 1.5rem;
+        margin-block: 5.4rem;
+        max-width: 70rem;
+        margin-inline: auto;
+        background: var(--body-bg-color);
+      }
+
+      /* tags container */
+      .tags {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-block: 1.2rem;
+        padding-inline: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      .tags .tag-item {
+        color: var(--color-footer-link);
+      }
+      /* Quiz container */
+
+      .quiz-header {
+        /* border: 1px solid green; */
+        padding: 3rem 1rem 5rem;
+        background: var(--color-text-btn);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+      }
+      .quiz-header__title {
+        margin-top: 3rem;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        text-align: center;
+        font-weight: 500;
+        color: var(--color-text);
+      }
+
+      /* Quiz Description Wrapper */
+      .quiz-description {
+        /* margin-top: 3rem; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      .desc-wrapper {
+        margin-top: 3rem;
+        padding-inline: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .desc__title {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+      .desc__body {
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+
+      .social-share {
+        margin-top: 3rem;
+        width: max-content;
+        margin-inline: auto;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      /* You may also like grid */
+      .other-grid {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+      .other-title {
+        grid-column: 1/-1;
+        text-align: center;
+        font-weight: 500;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+      }
+      .other-tile {
+        /* padding: 1rem; */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+      }
+      .other-tile__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--color-text-btn);
+      }
+      .other__img,
+      .other__body {
+        flex: 1;
+        flex-basis: 100%;
+      }
+      .other__body {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+      }
+      .other__body--topic {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      @media screen and (min-width: 700px) {
+        .other-tile__wrapper {
+          flex-direction: column;
+        }
+        .other__img,
+        .other__body {
+          width: 100%;
+        }
+        .other__body {
+          padding: 2rem;
+        }
+      }
+
+      .top-quizzes {
+        margin-top: 3rem;
+        padding: 1.5rem;
+      }
+      .top-quizzes__wrapper {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        gap: 2rem;
+      }
+      .top-quizzes__title {
+        text-align: center;
+        font-weight: 500;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+      }
+
+      .top-tile {
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 1rem;
+        -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+      }
+
+      .top-tile__img,
+      .top-tile__body {
+        width: 50%;
+      }
+
+      .top-tile__body {
+        padding: 1.5rem 2rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .top-tile__body p {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      @media screen and (min-width: 700px) {
+        .top-tile {
+          flex-direction: column;
+        }
+        .top-quizzes__title {
+          grid-column: 1/-1;
+        }
+        .top-tile__img,
+        .top-tile__body {
+          width: 100%;
+        }
+      }
+
+      /* footer */
+
+      .footer {
+        margin-top: 3rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.144);
+        padding: 1.5rem;
+      }
+
+      .footer__links {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .footer__link {
+        padding: 0rem 1rem;
+        display: inline-block;
+        margin-bottom: 0.4rem;
+        font-size: 1.4rem;
+        color: #428bca;
+      }
+
+      .footer__link:not(:last-child) {
+        border-right: 1px solid rgba(0, 0, 0, 0.459);
+      }
+
+      .footer__attribution {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
+      .footer__attribution--link {
+        color: var(--color-footer-link);
+        margin-right: 1rem;
+      }
+
+      .quiz__ques-no {
+        text-align: center;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+      }
+      .quiz__ques-text {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: var(--color-footer-link);
+      }
+      .choices {
+        padding: 1.5rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      .choices__link {
+        text-align: center;
+        width: 100%;
+        max-width: 350px;
+        margin-inline: auto;
+        display: block;
+        background: var(--body-bg-color);
+        color: var(--color-text);
+        padding: 1rem;
+        font-size: 1.3rem;
+      }
+      .choices__link:hover,
+      .choices__link:focus {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .quiz-categories {
+        padding: 1.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        max-width: 450px;
+        margin-inline: auto;
+      }
+
+      .quiz-categories__title {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        padding-inline: 1.5rem;
+        font-size: 2.5rem;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .quiz-categories__item {
+        text-align: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        display: inline-block;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #000;
+      }
+
+      .quiz-categories__item:hover,
+      .quiz-categories__item:focus {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    </style>
+    <!-- Accordion -->
+    <script
+      async
+      custom-element="amp-accordion"
+      src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"
+    ></script>
+    <!-- Sidebar -->
+    <script
+      async
+      custom-element="amp-sidebar"
+      src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+    ></script>
+    <!-- Star Rating -->
+    <script
+      async
+      custom-element="amp-form"
+      src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
+    ></script>
+    <script
+      async
+      custom-template="amp-mustache"
+      src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+    ></script>
+    <!-- Social SHare -->
+    <script
+      async
+      custom-element="amp-social-share"
+      src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"
+    ></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <!-- NavBar -->
+      <nav class="nav">
+        <!-- NavBar Container -->
+        <ul class="nav__bar">
+          <!-- Logo -->
+          <li class="logo">
+            <a href="./index.html" class="logo--link">
+              <amp-img
+                width="125"
+                height="25"
+                layout="fixed"
+                src="./quizony_logo_black.png"
+                alt="Quizony"
+              ></amp-img>
+            </a>
+          </li>
+          <!-- Nav Items -->
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Categories</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Create</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Wait Room</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__item--link">Our Story</a>
+          </li>
+          <li class="nav__item button button-signup">
+            <a href="#" class="nav__item--link button__link">Sign Up</a>
+          </li>
+          <li class="nav__item button button-login">
+            <a href="#" class="nav__item--link button__link">Login</a>
+          </li>
+          <!-- Menu Toggle -->
+          <li class="toggle">
+            <a
+              on="tap:sidebar.toggle"
+              role="button"
+              tabindex="0"
+              class="toggle--link"
+            >
+              <i class="fas fa-bars"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Sidebar Menu -->
+    <amp-sidebar
+      id="sidebar"
+      class="sidebar"
+      layout="nodisplay"
+      side="right"
+      width="100vw"
+    >
+      <div
+        class="close-sidebar"
+        role="button"
+        tabindex="0"
+        on="tap:sidebar.close"
+      >
+        <i class="fas fa-times"></i>
+      </div>
+      <ul class="sidebar__items">
+        <li class="sidebar__item button-signup"><a>Signup</a></li>
+        <li class="sidebar__item button-login"><a>Login</a></li>
+        <li class="sidebar__item">
+          <amp-accordion
+            class="submenu"
+            layout="container"
+            animate
+            expand-single-section
+          >
+            <section>
+              <header>Categories <i class="fas fa-chevron-down"></i></header>
+              <ul class="submenu__items">
+                <li class="submenu__item"><a>Quizzes</a></li>
+                <li class="submenu__item"><a>Stories</a></li>
+                <li class="submenu__item"><a>Popular Tags</a></li>
+              </ul>
+            </section>
+          </amp-accordion>
+        </li>
+        <li class="sidebar__item"><a>Create</a></li>
+        <li class="sidebar__item"><a>Wait Room</a></li>
+        <li class="sidebar__item"><a>Our Story</a></li>
+      </ul>
+    </amp-sidebar>
+
+    <!-- Quiz Container -->
+    <main class="container">
+      <div class="tags">
+        <p class="tags__cat">
+          Categories: <span class="tag-item">Living</span>
+        </p>
+        <p class="tags__tag">
+          Tags: <span class="tag-item">#Living</span
+          ><span class="tag-item">#Future</span>
+        </p>
+      </div>
+      <section class="quiz-container">
+        <div class="quiz-header">
+          <h3 class="quiz-header__title">Predict My Future</h3>
+          <!-- Question No. -->
+          <p class="quiz__ques-no">
+            Question <span>1</span> of <span>29</span>
+          </p>
+          <!-- Question Text -->
+          <h1 class="quiz__ques-text">Where would you rather be?</h1>
+          <!-- Choices -->
+          <div class="choices">
+            <a href="#" class="choices__link">Option 1</a
+            ><a href="#" class="choices__link">Option 2 </a
+            ><a href="#" class="choices__link">Option 3 </a>
+          </div>
+        </div>
+      </section>
+      <!-- Like Btn -->
+      <!-- <div class="like-btn"><i class="far fa-thumbs-up"></i> : 17382</div> -->
+      <!-- Others Grid -->
+      <div class="other-grid">
+        <h1 class="other-title">You May Also Like...</h1>
+        <!-- Quiz Tile -->
+        <article class="other-tile">
+          <div class="other-tile__wrapper">
+            <amp-img
+              src="./images/food/food-1.jpg"
+              class="other__img"
+              layout="responsive"
+              width="640"
+              height="457"
+            ></amp-img>
+            <div class="other__body">
+              <!-- <span class="other__body--time">1 month ago</span> -->
+              <p class="other__body--topic">What should you eat tonight?</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="other-tile">
+          <div class="other-tile__wrapper">
+            <amp-img
+              src="./images/food/food-2.jpg"
+              class="other__img"
+              layout="responsive"
+              width="640"
+              height="457"
+            ></amp-img>
+            <div class="other__body">
+              <!-- <span class="other__body--time">1 month ago</span> -->
+              <p class="other__body--topic">What should you eat tonight?</p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- Quiz Description -->
+      <div class="quiz-description">
+        <div class="desc-wrapper">
+          <h2 class="desc__title">Questions About My Future Life</h2>
+          <p class="desc__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            repellat nemo, praesentium asperiores nisi nulla ducimus excepturi
+            nesciunt, quis debitis velit fugit et unde voluptate aperiam alias,
+            officia dolore ut.
+          </p>
+        </div>
+        <div class="desc-wrapper">
+          <h2 class="desc__title">Fun Future Test</h2>
+          <p class="desc__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            repellat nemo, praesentium asperiores nisi nulla ducimus excepturi
+            nesciunt, quis debitis velit fugit et unde voluptate aperiam alias,
+            officia dolore ut.
+          </p>
+        </div>
+        <div class="desc-wrapper">
+          <h2 class="desc__title">Tell My Future -Answer Now!</h2>
+          <p class="desc__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            repellat nemo, praesentium asperiores nisi nulla ducimus excepturi
+            nesciunt, quis debitis velit fugit et unde voluptate aperiam alias,
+            officia dolore ut.
+          </p>
+        </div>
+        <div class="desc-wrapper">
+          <h2 class="desc__title">Predict Your Friends' Future</h2>
+          <p class="desc__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            repellat nemo, praesentium asperiores nisi nulla ducimus excepturi
+            nesciunt, quis debitis velit fugit et unde voluptate aperiam alias,
+            officia dolore ut.
+          </p>
+        </div>
+      </div>
+      <div class="social-share">
+        <amp-social-share type="facebook"> </amp-social-share>
+        <amp-social-share type="linkedin"> </amp-social-share>
+        <amp-social-share type="twitter"> </amp-social-share>
+        <amp-social-share type="whatsapp"> </amp-social-share>
+      </div>
+      <!-- <div class="start-quiz">
+        <a href="#" class="start-quiz__btn">Start Quiz</a>
+      </div> -->
+
+      <!-- Top Quizzes -->
+      <section class="top-quizzes center">
+        <h1 class="top-quizzes__title">Top Quizzes</h1>
+        <div class="top-quizzes__wrapper">
+          <article class="top-tile">
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top-1.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
+            <div class="top-tile__body">
+              <p>Which word should you live by this year?</p>
+            </div>
+          </article>
+          <article class="top-tile">
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top-2.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
+            <div class="top-tile__body">
+              <p>Which girl should i date?</p>
+            </div>
+          </article>
+          <article class="top-tile">
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top-3.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
+            <div class="top-tile__body">
+              <p>Am I A Top or A bottom?</p>
+            </div>
+          </article>
+          <article class="top-tile">
+            <amp-img
+              class="top-tile__img"
+              src="./images/top-quizzes/top4.jpg"
+              width="600"
+              height="350"
+              layout="responsive"
+            ></amp-img>
+            <div class="top-tile__body">
+              <p>Do I Love Him?</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <div class="pop-cat">
+        <section class="quiz-categories center popular">
+          <h1 class="quiz-categories__title">Popular Tags</h1>
+          <a href="#" class="quiz-categories__item popular__item">Girls</a
+          ><a href="#" class="quiz-categories__item popular__item">Friends</a
+          ><a href="#" class="quiz-categories__item popular__item">Fun</a
+          ><a href="#" class="quiz-categories__item popular__item">Teens</a
+          ><a href="#" class="quiz-categories__item popular__item">Love</a
+          ><a href="#" class="quiz-categories__item popular__item"
+            >Personality</a
+          ><a href="#" class="quiz-categories__item popular__item">Food</a
+          ><a href="#" class="quiz-categories__item popular__item">History</a
+          ><a href="#" class="quiz-categories__item popular__item">Name</a
+          ><a href="#" class="quiz-categories__item popular__item">Generator</a
+          ><a href="#" class="quiz-categories__item popular__item">Character</a
+          ><a href="#" class="quiz-categories__item popular__item">Lifestyle</a
+          ><a href="#" class="quiz-categories__item popular__item">Religion</a
+          ><a href="#" class="quiz-categories__item popular__item">Music</a
+          ><a href="#" class="quiz-categories__item popular__item">Style</a
+          ><a href="#" class="quiz-categories__item popular__item">Animals</a>
+        </section>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer__links center">
+        <a href="#" class="footer__link">Home</a
+        ><a href="#" class="footer__link">Adverise</a
+        ><a href="#" class="footer__link">Contact</a
+        ><a href="#" class="footer__link">About</a
+        ><a href="#" class="footer__link">Privacy Policy</a
+        ><a href="#" class="footer__link">Coolie Policy</a>
+      </div>
+      <div class="footer__attribution center">
+        <a href="./index.html" class="footer__attribution--link"
+          >quizony.com
+        </a>
+        <span>&copy; 2021. All Rights Reserved.</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -91,8 +91,17 @@
         font-size: 10px;
       }
 
+      :root {
+        --color-accent: #30c553;
+        --color-accent-dark: #0a8f29;
+        --color-text: #000;
+        --color-text-btn: #fff;
+        --body-bg-color: #f0ebeb;
+        --color-footer-link: #428bca;
+      }
+
       body {
-        background: #f0ebeb;
+        background: var(--body-bg-color);
         font-family: "Poppins", sans-serif;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -118,7 +127,7 @@
       }
 
       .nav {
-        background: #f0ebeb;
+        background: var(--body-bg-color);
       }
 
       .nav__bar {
@@ -167,9 +176,11 @@
         font-size: 1.6rem;
       }
 
-      .nav .logo--link img {
+      .nav .logo--link .logo__img {
+        position: relative;
         width: 100%;
         max-width: 13rem;
+        zindex: 10000;
       }
 
       .nav .button {
@@ -200,7 +211,7 @@
       .sidebar {
         width: 100vw;
         padding: 2rem 0;
-        background-color: #f0ebeb;
+        background-color: var(--body-bg-color);
       }
 
       .sidebar__items {
@@ -307,9 +318,7 @@
           padding-inline: 1rem;
         }
         .sidebar {
-          width: -webkit-max-content;
-          width: -moz-max-content;
-          width: max-content;
+          width: 50vw;
         }
         .sidebar__items .button-signup,
         .sidebar__items .button-login {
@@ -318,6 +327,9 @@
       }
 
       @media all and (min-width: 960px) {
+        .nav {
+          padding-inline: 4rem;
+        }
         .nav__item {
           -webkit-box-ordinal-group: 2;
           -ms-flex-order: 1;
@@ -337,15 +349,10 @@
         .nav .toggle {
           display: none;
         }
-        .sub__menu {
-          position: absolute;
-          top: 100%;
-          background: #f0ebeb;
-        }
       }
 
       .main {
-        background: #f0ebeb;
+        background: var(--body-bg-color);
         margin-block: 5.4rem;
         max-width: 120rem;
         margin-inline: auto;
@@ -353,7 +360,7 @@
 
       .categories {
         width: 100%;
-        background: #f0ebeb;
+        background: var(--body-bg-color);
         padding: 1rem 1.5rem;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -393,10 +400,7 @@
 
       .quiz-tile {
         cursor: pointer;
-        -webkit-transition: -webkit-transform 250ms ease-in;
-        transition: -webkit-transform 250ms ease-in;
         transition: transform 250ms ease-in;
-        transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
         overflow: hidden;
       }
 
@@ -420,11 +424,7 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
         gap: 1rem;
         margin-top: 0.5rem;
@@ -527,8 +527,6 @@
         margin-bottom: 1rem;
         -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
-        -webkit-animation: reveal 1s ease-in forwards;
-        animation: reveal 1s ease-in forwards;
       }
 
       .top-tile__img,
@@ -560,11 +558,11 @@
         display: block;
         margin-inline: auto;
         text-align: center;
-        background: #30c553;
+        background: var(--color-accent);
         padding: 1.2rem 2rem;
         font-size: 1.6rem;
         font-weight: 500;
-        color: #fff;
+        color: var(--color-text-btn);
         overflow: hidden;
         -webkit-transition: background 200ms ease-in;
         transition: background 200ms ease-in;
@@ -572,7 +570,7 @@
 
       .create__btn:hover,
       .create__btn:focus {
-        background: #0a8f29;
+        background: var(--color-accent-dark);
       }
 
       .footer {
@@ -614,7 +612,7 @@
       }
 
       .footer__attribution--link {
-        color: #428bca;
+        color: var(--color-footer-link);
         margin-right: 1rem;
       }
 
@@ -626,33 +624,6 @@
         max-width: 375px;
         margin-inline: auto;
       }
-
-      @-webkit-keyframes reveal {
-        from {
-          -webkit-transform: translateY(2rem);
-          transform: translateY(2rem);
-          opacity: 0;
-        }
-        to {
-          -webkit-transform: translateY(0);
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes reveal {
-        from {
-          -webkit-transform: translateY(2rem);
-          transform: translateY(2rem);
-          opacity: 0;
-        }
-        to {
-          -webkit-transform: translateY(0);
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
       @media all and (min-width: 750px) {
         .quiz-tile__wrapper {
           -webkit-box-orient: vertical;
