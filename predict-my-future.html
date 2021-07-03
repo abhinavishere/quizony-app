@@ -558,6 +558,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background: var(--color-text-btn);
       }
       .other__img,
       .other__body {
@@ -587,6 +588,47 @@
           padding: 2rem;
         }
       }
+
+      .popular {
+        padding: 1.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        max-width: 450px;
+        margin-inline: auto;
+      }
+
+      .popular__title {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        padding-inline: 1.5rem;
+        font-size: 2.5rem;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .popular__item {
+        text-align: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        display: inline-block;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #000;
+      }
+
+      .popular__item:hover,
+      .popular__item:focus {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer */
 
       .footer {
         margin-top: 3rem;
@@ -965,29 +1007,25 @@
           </div>
         </article>
       </div>
-      <div class="pop-cat">
-        <section class="quiz-categories center popular">
-          <h1 class="quiz-categories__title">Popular Tags</h1>
-          <a href="#" class="quiz-categories__item popular__item">Girls</a>
-          <a href="#" class="quiz-categories__item popular__item">Friends</a>
-          <a href="#" class="quiz-categories__item popular__item">Fun</a>
-          <a href="#" class="quiz-categories__item popular__item">Teens</a>
-          <a href="#" class="quiz-categories__item popular__item">Love</a>
-          <a href="#" class="quiz-categories__item popular__item"
-            >Personality</a
-          >
-          <a href="#" class="quiz-categories__item popular__item">Food</a>
-          <a href="#" class="quiz-categories__item popular__item">History</a>
-          <a href="#" class="quiz-categories__item popular__item">Name</a>
-          <a href="#" class="quiz-categories__item popular__item">Generator</a>
-          <a href="#" class="quiz-categories__item popular__item">Character</a>
-          <a href="#" class="quiz-categories__item popular__item">Lifestyle</a>
-          <a href="#" class="quiz-categories__item popular__item">Religion</a>
-          <a href="#" class="quiz-categories__item popular__item">Music</a>
-          <a href="#" class="quiz-categories__item popular__item">Style</a>
-          <a href="#" class="quiz-categories__item popular__item">Animals</a>
-        </section>
-      </div>
+      <section class="popular">
+        <h1 class="popular__title">Popular Tags</h1>
+        <a href="#" class="popular__item">Girls</a
+        ><a href="#" class="popular__item">Friends</a
+        ><a href="#" class="popular__item">Fun</a
+        ><a href="#" class="popular__item">Teens</a
+        ><a href="#" class="popular__item">Love</a
+        ><a href="#" class="popular__item">Personality</a
+        ><a href="#" class="popular__item">Food</a
+        ><a href="#" class="popular__item">History</a
+        ><a href="#" class="popular__item">Name</a
+        ><a href="#" class="popular__item">Generator</a
+        ><a href="#" class="popular__item">Character</a
+        ><a href="#" class="popular__item">Lifestyle</a
+        ><a href="#" class="popular__item">Religion</a
+        ><a href="#" class="popular__item">Music</a
+        ><a href="#" class="popular__item">Style</a
+        ><a href="#" class="popular__item">Animals</a>
+      </section>
     </main>
     <!-- footer -->
     <footer class="footer">
